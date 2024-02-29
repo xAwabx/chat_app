@@ -27,7 +27,7 @@ const NavBar: FC<NavBarProps> = ({}) => {
             </div>
             <IoIosLogOut
               size={30}
-              onClick={logout}
+              onClick={() => logout()}
               className="cursor-pointer"
             />
           </>
