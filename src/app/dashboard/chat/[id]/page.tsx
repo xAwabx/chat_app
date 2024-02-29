@@ -30,7 +30,7 @@ const page: FC<pageProps> = ({ params }: pageProps) => {
     const fetch = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/chat?chatId=${chatId}`
+          `https://chat-itup.netlify.app/api/chat?chatId=${chatId}`
         );
         console.log(res.data.messages);
         setData(res.data);

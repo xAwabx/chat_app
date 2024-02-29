@@ -27,17 +27,20 @@ export const AuthContextProvider = ({
       !user_cb && router.push("/login");
       if (user_cb) {
         const getres: any = await axios.get(
-          `http://localhost:3000/api/user?uid=${user_cb.uid}`
+          `https://chat-itup.netlify.app/api/user?uid=${user_cb.uid}`
         );
         console.log("GET DATA", getres.data.data);
         if (getres.data.data === null) {
           try {
-            const res = await axios.post("http://localhost:3000/api/user", {
-              uid: user_cb.uid,
-              name: user_cb.displayName,
-              pfp: user_cb.photoURL,
-              email: user_cb.email,
-            });
+            const res = await axios.post(
+              "https://chat-itup.netlify.app/api/user",
+              {
+                uid: user_cb.uid,
+                name: user_cb.displayName,
+                pfp: user_cb.photoURL,
+                email: user_cb.email,
+              }
+            );
             console.log("POST RES: ", res.data.data);
             setUser(res.data.data);
           } catch (error) {

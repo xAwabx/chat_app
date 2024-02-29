@@ -7,7 +7,7 @@ export default async function sendMessageCall(
 ) {
   try {
     const res = await axios.post(
-      "http://localhost:3000/api/chat/message/send",
+      "https://chat-itup.netlify.app/api/chat/message/send",
       {
         chatId: chatId,
         name: name,
