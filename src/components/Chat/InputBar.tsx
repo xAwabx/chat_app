@@ -27,7 +27,7 @@ const InputBar: FC<InputBarProps> = ({ setMessages, chatId }) => {
     setText("");
   };
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleKeyPress = (event: any) => {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
       submitHandler();
