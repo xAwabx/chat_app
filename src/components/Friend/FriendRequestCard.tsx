@@ -8,13 +8,11 @@ import { rejectFriendRequest } from "@/lib/utils/rejectfriend";
 interface FriendRequestCardProps {
   friendName: string;
   friendUid: string;
-  req_id: string;
 }
 
 const FriendRequestCard: FC<FriendRequestCardProps> = ({
   friendName,
   friendUid,
-  req_id,
 }) => {
   const { user, setUser } = useAuth();
   const [disabled, setDisabled] = useState(false);

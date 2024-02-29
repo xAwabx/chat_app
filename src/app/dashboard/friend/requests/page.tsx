@@ -14,11 +14,7 @@ const page: FC<pageProps> = ({}) => {
     <div className="flex flex-col gap-4">
       {user.requests.length != 0 ? (
         user.requests.map((req) => (
-          <FriendRequestCard
-            req_id={req._id}
-            friendName={req.name}
-            friendUid={req.Id}
-          />
+          <FriendRequestCard friendName={req.name} friendUid={req.Id} />
         ))
       ) : (
         <>
