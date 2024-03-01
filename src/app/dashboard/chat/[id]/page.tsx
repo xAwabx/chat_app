@@ -13,6 +13,7 @@ interface pageProps {
   };
 }
 interface Message {
+  id: string;
   _id: string;
   name: string;
   text: string;
