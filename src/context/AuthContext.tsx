@@ -27,13 +27,13 @@ export const AuthContextProvider = ({
       !user_cb && router.push("/login");
       if (user_cb) {
         const getres: any = await axios.get(
-          `https://chat-itup.netlify.app/api/user?uid=${user_cb.uid}`
+          `https://chat-app-psi-murex-45.vercel.app/api/user?uid=${user_cb.uid}`
         );
         console.log("GET DATA", getres.data.data);
         if (getres.data.data === null) {
           try {
             const res = await axios.post(
-              "https://chat-itup.netlify.app/api/user",
+              "https://chat-app-psi-murex-45.vercel.app/api/user",
               {
                 uid: user_cb.uid,
                 name: user_cb.displayName,

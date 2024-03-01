@@ -7,7 +7,7 @@ export const sendRequestCall = async (
 ) => {
   try {
     const res = (await axios.post(
-      "https://chat-itup.netlify.app/api/friend/request",
+      "https://chat-app-psi-murex-45.vercel.app/api/friend/request",
       {
         uid: currentUserId,
         name: currentUserName,

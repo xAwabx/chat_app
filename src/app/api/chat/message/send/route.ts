@@ -3,9 +3,9 @@ import { pusherServer } from "@/lib/pusher";
 import Chat from "@/models/Chats";
 import { NextResponse } from "next/server";
 
-// send message - chatId  name  text
+// send message - chatId  name  text uid
 export async function POST(req: any) {
-  const { chatId, name, text } = await req.json();
+  const { chatId, name, text, uid } = await req.json();
 
   const time = new Date().toLocaleTimeString([], {
     hour: "2-digit",
@@ -14,6 +14,7 @@ export async function POST(req: any) {
   });
 
   pusherServer.trigger(`chat-channel-${chatId}`, "incomming-message", {
+    id: uid,
     name: name,
     text: text,
     time: time,
@@ -22,7 +23,7 @@ export async function POST(req: any) {
   await dbConnect();
   const doc = await Chat.findOneAndUpdate(
     { _id: chatId },
-    { $push: { messages: [{ name: name, text: text, time: time }] } },
+    { $push: { messages: [{ name: name, text: text, time: time, id: uid }] } },
     { new: true }
   );
   const messages: [] = doc.messages;

@@ -30,7 +30,7 @@ const page: FC<pageProps> = ({ params }: pageProps) => {
     const fetch = async () => {
       try {
         const res = await axios.get(
-          `https://chat-itup.netlify.app/api/chat?chatId=${chatId}`
+          `https://chat-app-psi-murex-45.vercel.app/api/chat?chatId=${chatId}`
         );
         console.log(res.data.messages);
         setData(res.data);
@@ -45,7 +45,9 @@ const page: FC<pageProps> = ({ params }: pageProps) => {
 
     function messageHandler(message: any) {
       console.log(message);
-      setMessages((prev: any) => [message, ...prev]);
+      if (message.id != user.uid) {
+        setMessages((prev: any) => [message, ...prev]);
+      }
     }
 
     pusherCLient.bind("incomming-message", messageHandler);

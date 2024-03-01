@@ -8,7 +8,7 @@ export const acceptFriendRequest = async (
 ) => {
   try {
     const res = (await axios.post(
-      "https://chat-itup.netlify.app/api/friend/accept",
+      "https://chat-app-psi-murex-45.vercel.app/api/friend/accept",
       {
         userUid: currentUserId,
         userName: currentUserName,

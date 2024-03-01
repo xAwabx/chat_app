@@ -37,7 +37,7 @@ const OpenChatButton: FC<OpenChatButtonProps> = ({ id, chatId, edit }) => {
     setDisabled(true);
     try {
       const res: any = await axios.post(
-        `https://chat-itup.netlify.app/api/friend/remove`,
+        `https://chat-app-psi-murex-45.vercel.app/api/friend/remove`,
         {
           userUid: user.uid,
           friendUid: id,

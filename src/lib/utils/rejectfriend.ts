@@ -6,7 +6,7 @@ export const rejectFriendRequest = async (
 ) => {
   try {
     const res = (await axios.post(
-      "https://chat-itup.netlify.app/api/friend/reject",
+      "https://chat-app-psi-murex-45.vercel.app/api/friend/reject",
       {
         userUid: userUid,
         friendUid: friendUid,

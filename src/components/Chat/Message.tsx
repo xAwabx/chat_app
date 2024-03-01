@@ -7,6 +7,7 @@ interface MessageProps {
     name: string;
     text: string;
     time: string;
+    id: string;
   };
   length: number;
   i: number;
@@ -16,11 +17,11 @@ interface MessageProps {
 const Message: FC<MessageProps> = ({ message, length, i }) => {
   const [mine, setMine] = useState(false);
   const { user } = useAuth();
-  const { name, text, time } = message;
+  const { name, text, time, id } = message;
 
   useEffect(() => {
     console.log(user.name);
-    if (user.name === name) {
+    if (user.uid == id) {
       setMine(true);
     } else {
       setMine(false);
