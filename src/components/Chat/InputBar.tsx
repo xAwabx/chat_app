@@ -20,21 +20,22 @@ const InputBar: FC<InputBarProps> = ({ setMessages, chatId }) => {
   const inputRef = useRef<any>();
 
   const submitHandler = async () => {
+    const time = new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
     if (text != "") {
       setDisabled(true);
       const new_message = {
         id: user.uid,
         name: name,
         text: text,
-        time: new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: true,
-        }),
+        time: time,
       };
       setMessages((prev: any) => [new_message, ...prev]);
       setText("");
-      const res = await sendMessageCall(name, text, chatId, user.uid);
+      const res = await sendMessageCall(name, text, chatId, user.uid, time);
       setDisabled(false);
     }
   };

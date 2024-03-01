@@ -4,7 +4,8 @@ export default async function sendMessageCall(
   name: string,
   text: string,
   chatId: string,
-  uid: string
+  uid: string,
+  time: string
 ) {
   try {
     const res = await axios.post(
@@ -14,6 +15,7 @@ export default async function sendMessageCall(
         name: name,
         text: text,
         uid: uid,
+        time: time,
       }
     );
     return res.data;

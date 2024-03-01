@@ -5,13 +5,13 @@ import { NextResponse } from "next/server";
 
 // send message - chatId  name  text uid
 export async function POST(req: any) {
-  const { chatId, name, text, uid } = await req.json();
+  const { chatId, name, text, uid, time } = await req.json();
 
-  const time = new Date().toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  });
+  // const time = new Date().toLocaleTimeString([], {
+  //   hour: "2-digit",
+  //   minute: "2-digit",
+  //   hour12: true,
+  // });
 
   pusherServer.trigger(`chat-channel-${chatId}`, "incomming-message", {
     id: uid,
